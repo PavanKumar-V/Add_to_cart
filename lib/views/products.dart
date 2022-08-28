@@ -48,12 +48,13 @@ class _ProductsPageState extends State<ProductsPage> {
                       Icons.shopping_cart_outlined,
                       color: Colors.black,
                     )),
-                Text(
-                  "${context.watch<DataProvider>().count}",
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
-                )
+                if (context.watch<DataProvider>().count != 0)
+                  Text(
+                    "${context.watch<DataProvider>().count}",
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                  )
               ],
             ),
           )
