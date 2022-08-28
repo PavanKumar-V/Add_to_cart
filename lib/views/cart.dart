@@ -153,6 +153,14 @@ class _CartPageState extends State<CartPage> {
                                   context
                                       .read<DataProvider>()
                                       .removeFromCart(cartItems[index]);
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(const SnackBar(
+                                    backgroundColor: Colors.red,
+                                    dismissDirection: DismissDirection.down,
+                                    duration: Duration(seconds: 2),
+                                    behavior: SnackBarBehavior.floating,
+                                    content: Text("Item removed from cart"),
+                                  ));
                                   context.read<DataProvider>().decrementCount();
                                 },
                                 child: CircleAvatar(

@@ -60,6 +60,21 @@ class _ProductCardState extends State<ProductCard> {
                         price: widget.product.price,
                         quantity: 1,
                         image: widget.product.images[0]));
+
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: Colors.green,
+                      dismissDirection: DismissDirection.down,
+                      duration: const Duration(seconds: 2),
+                      behavior: SnackBarBehavior.floating,
+                      content: const Text("Item added to cart"),
+                      action: SnackBarAction(
+                          label: "Cart",
+                          textColor: Colors.black,
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const CartPage()));
+                          }),
+                    ));
                     context.read<DataProvider>().incrementCount();
                     context
                         .read<DataProvider>()
