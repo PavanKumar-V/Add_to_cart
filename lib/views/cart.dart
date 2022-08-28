@@ -55,10 +55,16 @@ class _CartPageState extends State<CartPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Image.network(
-                                cartItems[index].image,
-                                width: 120,
-                                height: 120,
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(14.0),
+                                  child: Image.network(
+                                    cartItems[index].image,
+                                    height: 100.0,
+                                    width: 100.0,
+                                  ),
+                                ),
                               ),
                               Column(
                                 mainAxisAlignment:
@@ -195,7 +201,11 @@ class _CartPageState extends State<CartPage> {
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
                     const Spacer(),
-                    Text(" ${context.watch<DataProvider>().totalAmount}")
+                    Text(
+                      " ${context.watch<DataProvider>().totalAmount}",
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
+                    )
                   ],
                 ),
                 const Spacer(),
